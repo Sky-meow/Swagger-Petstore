@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nf147.sim.mapper.PostMapper">
+  <resultMap id="BaseResultMap" type="com.nf147.sim.entity.Post">
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="write_date" jdbcType="TIMESTAMP" property="write_date" />
+  </resultMap>
+  <insert id="insert" parameterType="com.nf147.sim.entity.Post">
+    insert into post (author, title, content, 
+      write_date)
+    values (#{author,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{write_date,jdbcType=TIMESTAMP})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select author, title, content, write_date
+    from post
+  </select>
+</mapper>

@@ -6,7 +6,5 @@
 
     <!--启用注解-->
     <context:component-scan base-package="template" />
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-        <property name="defaultLocale" value="zh"/>
-    </bean>
+
 </beans>

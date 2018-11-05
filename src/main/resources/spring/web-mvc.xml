@@ -13,20 +13,6 @@
 
     <!--将所有的静态资源交还 Servlet 处理-->
     <mvc:default-servlet-handler />
-    <bean id="myValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-        <property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
-        <property name="validationMessageSource" ref="messageSource" />
-    </bean>
-
-
-    <!--负责加载外部语言文件的-->
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="classpath:messages/xxxx" />
-        <property name="defaultEncoding" value="GBK" />
-    </bean>
-    <!--当通过 Accept-Language 自动确定 Locale 的方式已经满足不了你，-->
-    <!--那么你需要试试注册一个 LocaleResolver 来制定 Locale 策略-->
-
 
     <!--配置返回页面-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

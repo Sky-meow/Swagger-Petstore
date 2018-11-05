@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="template.mapper.PetUserMapper">
+  <resultMap id="BaseResultMap" type="template.entity.PetUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+    <result column="first_name" jdbcType="VARCHAR" property="first_name" />
+    <result column="last_name" jdbcType="VARCHAR" property="last_name" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="pass_word" jdbcType="VARCHAR" property="pass_word" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="user_status" jdbcType="INTEGER" property="user_status" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pet_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="template.entity.PetUser" useGeneratedKeys="true">
+    insert into pet_user (id,user_name, first_name, last_name,
+      email, pass_word, phone, 
+      user_status)
+    values (#{id,jdbcType=INTEGER},#{user_name,jdbcType=VARCHAR}, #{first_name,jdbcType=VARCHAR}, #{last_name,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR}, #{pass_word,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{user_status,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="template.entity.PetUser">
+    update pet_user
+    set user_name = #{user_name,jdbcType=VARCHAR},
+      first_name = #{first_name,jdbcType=VARCHAR},
+      last_name = #{last_name,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      pass_word = #{pass_word,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      user_status = #{user_status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, user_name, first_name, last_name, email, pass_word, phone, user_status
+    from pet_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, user_name, first_name, last_name, email, pass_word, phone, user_status
+    from pet_user
+  </select>
+</mapper>

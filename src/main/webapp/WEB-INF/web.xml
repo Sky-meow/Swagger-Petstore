@@ -39,13 +39,9 @@
       <param-value>classpath:spring/web-mvc.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
-    <multipart-config>
-      <max-file-size>10000</max-file-size>
-    </multipart-config>
   </servlet>
   <servlet-mapping>
     <servlet-name>web</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
 </web-app>
